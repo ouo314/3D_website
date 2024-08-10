@@ -4,20 +4,22 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width">
   <title>PCB 3D Model Viewer</title>
-  <script src="https://aframe.io/releases/1.6.0/aframe.min.js"></script>
+  <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
 </head>
 <body>
   <a-scene>
     <a-assets>
-      <a-asset-item id="pcbModel" src="test.glb"></a-asset-item>
+      <a-asset-item id="pcb-obj" src="pcb.obj"></a-asset-item>
+      <a-asset-item id="pcb-mtl" src="pcb.mtl"></a-asset-item>
     </a-assets>
-    
-    <a-entity id="pcbEntity" gltf-model="#pcbModel" position="0 1.5 -3" rotation="0 0 0" scale="100 100 100"></a-entity>
+
+    <a-entity id="pcbEntity" obj-model="obj: #pcb-obj; mtl: #pcb-mtl"></a-entity>
     
     <a-light type="ambient" color="#BBB"></a-light>
     <a-light type="directional" position="0 1 1" color="#FFF" intensity="0.6"></a-light>
     
     <a-sky color="#ECECEC"></a-sky>
+    <a-plane position="0 2 -8" width="6" height="4" color="black"></a-plane>
     <a-plane position="0 0 -4" rotation="-90 0 0" width="4" height="4" color="#7BC8A4"></a-plane>
     
     <a-entity camera look-controls position="0 1.6 0"></a-entity>
@@ -33,18 +35,18 @@
           console.log('加載完成');
         });
       } else {
-        console.error('找不到a-assets');
+        console.error('找不到 a-assets');
       }
       
       if (pcbEntity) {
         pcbEntity.addEventListener('model-loaded', function () {
-          console.log('PCB 模型完成');
+          console.log('PCB 模型加載完成');
         });
         pcbEntity.addEventListener('model-error', function (e) {
-          console.error('PCB 模型失敗', e);
+          console.error('PCB 模型加載失敗', e);
         });
       } else {
-        console.error('找不到#pcbEntity');
+        console.error('找不到 #pcbEntity');
       }
     });
   </script>
