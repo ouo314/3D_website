@@ -6,10 +6,19 @@
   <meta name="viewport" content="width=device-width">
   <title>replit</title>
   <link href="style.css" rel="stylesheet" type="text/css" />
+  <script src="https://aframe.io/releases/1.6.0/aframe.min.js"></script>
 </head>
 
 <body>
-  Hello world
+  <a-scene>
+    <a-assets>
+      <a-asset-item id="pcbModel" src="ver2(used_ant.obj"></a-asset-item>
+    </a-assets>
+
+    <a-entity obj-model="#pcbModel" position="0 1.6 -2" rotation="0 0 0" scale="1 1 1" 
+    animation="property: rotation; to: 0 360 0; loop: true; dur: 10000"></a-entity>
+
+  </a-scene>
   <script src="script.js"></script>
 </body>
 
