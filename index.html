@@ -4,16 +4,15 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width">
   <title>PCB 3D Model Viewer</title>
-  <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
+  <script src="https://aframe.io/releases/1.6.0/aframe.min.js"></script>
 </head>
 <body>
   <a-scene>
     <a-assets>
-      <a-asset-item id="pcb-obj" src="pcb.obj"></a-asset-item>
-      <a-asset-item id="pcb-mtl" src="pcb.mtl"></a-asset-item>
+      <a-asset-item id="pcb" src="pcb.glb"></a-asset-item>
     </a-assets>
 
-    <a-entity id="pcbEntity" obj-model="obj: #pcb-obj; mtl: #pcb-mtl"></a-entity>
+    <a-entity id="pcbEntity" gltf-model="#pcb"></a-entity>
     
     <a-light type="ambient" color="#BBB"></a-light>
     <a-light type="directional" position="0 1 1" color="#FFF" intensity="0.6"></a-light>
