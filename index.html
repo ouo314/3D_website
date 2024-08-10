@@ -8,30 +8,31 @@
 </head>
 <body>
   <a-scene>
-    
     <a-assets>
       <a-asset-item id="ver1" src="ver1.glb"></a-asset-item>
-    </a-assets>
-    <a-entity id="ver1Entity" gltf-model="#ver1" position="0 1.5 -3" rotation="0 90 0"></a-entity>
-
-    <a-assets>
       <a-asset-item id="ver2" src="ver2.glb"></a-asset-item>
-    </a-assets>
-    <a-entity id="ver2Entity" gltf-model="#ver2" position="1 1.5 -3" rotation="0 90 0"></a-entity>
-
-    <a-assets>
       <a-asset-item id="ver3" src="ver3.glb"></a-asset-item>
     </a-assets>
-    <a-entity id="ver3Entity" gltf-model="#ver3" position="-1.5 1.5 -3" rotation="0 90 0"></a-entity>
+    
+    <a-entity id="ver1Entity" gltf-model="#ver1" position="0 1.5 -3" rotation="0 270 0"></a-entity>
+    <a-box color="gray" position="0 0.5 -3" width="1" height="1" depth="1"></a-box>
+    <a-text value="Ver1 PCB: a PCB for a remote control car, featuring an ESP32-C3 as the main control chip, a USB-C interface, and the ability to control two motors." position="0 1 -2.7" rotation="-90 0 0" width="1" align="center"></a-text>
+    
+    <a-entity id="ver2Entity" gltf-model="#ver2" position="3.3 1.5 -3" rotation="0 270 0"></a-entity>
+    <a-box color="gray" position="3.3 0.5 -3" width="1" height="1" depth="1"></a-box>
+    <a-text value="Ver2 PCB:Based on Version 1, Choose a More Suitable IC and Optimize the Layout and Routing" position="3.3 1 -2.7" rotation="-90 0 0" width="1" align="center"></a-text>
+    
+    <a-entity id="ver3Entity" gltf-model="#ver3" position="-3.5 1.5 -3" rotation="0 90 0"></a-entity>
+    <a-box color="gray" position="-3.5 0.5 -3" width="1" height="1" depth="1"></a-box>
+    <a-text value="Ver3 PCB:the third version of the remote control car PCB. The goal was to make the PCB as small and inexpensive as possible. Due to the reduced size, I had to spend more time on layout and routing. Additionally, my lack of knowledge regarding RF ICs and antennas led to several issues during this part of the design. They took up a significant amount of space, and I believe there is still room for improvement. I plan to optimize this aspect of the design in the next version." position="-3.5 1 -2.7" rotation="-90 0 0" width="1" align="center"></a-text>
     
     <a-light type="ambient" color="#BBB"></a-light>
     <a-light type="directional" position="0 1 1" color="#FFF" intensity="0.6"></a-light>
     
     <a-sky color="#ECECEC"></a-sky>
-    <a-plane position="0 0 -4" rotation="-90 0 0" width="4" height="4" color="#7BC8A4"></a-plane>
+    <a-plane position="0 0 -4" rotation="-90 0 0" width="8" height="8" color="#7BC8A4"></a-plane>
     
-    <a-entity camera look-controls position="0 1.6 0"></a-entity>
+    <a-entity camera look-controls wasd-controls position="0 1.6 1"></a-entity>
   </a-scene>
-
 </body>
 </html>
