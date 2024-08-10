@@ -1,25 +1,52 @@
 <!DOCTYPE html>
 <html>
-
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width">
-  <title>replit</title>
-  <link href="style.css" rel="stylesheet" type="text/css" />
+  <title>PCB 3D Model Viewer</title>
   <script src="https://aframe.io/releases/1.6.0/aframe.min.js"></script>
 </head>
-
 <body>
   <a-scene>
     <a-assets>
-      <a-asset-item id="pcbModel" src="ver2(used_ant.obj"></a-asset-item>
+      <a-asset-item id="pcbModel" src="test.glb"></a-asset-item>
     </a-assets>
-
-    <a-entity obj-model="#pcbModel" position="0 1.6 -2" rotation="0 0 0" scale="1 1 1" 
-    animation="property: rotation; to: 0 360 0; loop: true; dur: 10000"></a-entity>
-
+    
+    <a-entity id="pcbEntity" gltf-model="#pcbModel" position="0 1.5 -3" rotation="0 0 0" scale="100 100 100"></a-entity>
+    
+    <a-light type="ambient" color="#BBB"></a-light>
+    <a-light type="directional" position="0 1 1" color="#FFF" intensity="0.6"></a-light>
+    
+    <a-sky color="#ECECEC"></a-sky>
+    <a-plane position="0 0 -4" rotation="-90 0 0" width="4" height="4" color="#7BC8A4"></a-plane>
+    
+    <a-entity camera look-controls position="0 1.6 0"></a-entity>
   </a-scene>
-  <script src="script.js"></script>
-</body>
 
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      var assets = document.querySelector('a-assets');
+      var pcbEntity = document.querySelector('#pcbEntity');
+      
+      if (assets) {
+        assets.addEventListener('loaded', function () {
+          console.log('加載完成');
+        });
+      } else {
+        console.error('找不到a-assets');
+      }
+      
+      if (pcbEntity) {
+        pcbEntity.addEventListener('model-loaded', function () {
+          console.log('PCB 模型完成');
+        });
+        pcbEntity.addEventListener('model-error', function (e) {
+          console.error('PCB 模型失敗', e);
+        });
+      } else {
+        console.error('找不到#pcbEntity');
+      }
+    });
+  </script>
+</body>
 </html>
