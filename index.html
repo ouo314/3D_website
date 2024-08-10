@@ -8,46 +8,30 @@
 </head>
 <body>
   <a-scene>
+    
     <a-assets>
-      <a-asset-item id="pcb" src="pcb.glb"></a-asset-item>
+      <a-asset-item id="ver1" src="ver1.glb"></a-asset-item>
     </a-assets>
+    <a-entity id="ver1Entity" gltf-model="#ver1" position="0 1.5 -3" rotation="0 90 0"></a-entity>
 
-    <a-entity id="pcbEntity" gltf-model="#pcb"></a-entity>
+    <a-assets>
+      <a-asset-item id="ver2" src="ver2.glb"></a-asset-item>
+    </a-assets>
+    <a-entity id="ver2Entity" gltf-model="#ver2" position="1 1.5 -3" rotation="0 90 0"></a-entity>
+
+    <a-assets>
+      <a-asset-item id="ver3" src="ver3.glb"></a-asset-item>
+    </a-assets>
+    <a-entity id="ver3Entity" gltf-model="#ver3" position="-1.5 1.5 -3" rotation="0 90 0"></a-entity>
     
     <a-light type="ambient" color="#BBB"></a-light>
     <a-light type="directional" position="0 1 1" color="#FFF" intensity="0.6"></a-light>
     
     <a-sky color="#ECECEC"></a-sky>
-    <a-plane position="0 2 -8" width="6" height="4" color="black"></a-plane>
     <a-plane position="0 0 -4" rotation="-90 0 0" width="4" height="4" color="#7BC8A4"></a-plane>
     
     <a-entity camera look-controls position="0 1.6 0"></a-entity>
   </a-scene>
 
-  <script>
-    document.addEventListener('DOMContentLoaded', function() {
-      var assets = document.querySelector('a-assets');
-      var pcbEntity = document.querySelector('#pcbEntity');
-      
-      if (assets) {
-        assets.addEventListener('loaded', function () {
-          console.log('加載完成');
-        });
-      } else {
-        console.error('找不到 a-assets');
-      }
-      
-      if (pcbEntity) {
-        pcbEntity.addEventListener('model-loaded', function () {
-          console.log('PCB 模型加載完成');
-        });
-        pcbEntity.addEventListener('model-error', function (e) {
-          console.error('PCB 模型加載失敗', e);
-        });
-      } else {
-        console.error('找不到 #pcbEntity');
-      }
-    });
-  </script>
 </body>
 </html>
